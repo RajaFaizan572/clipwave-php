@@ -1,6 +1,6 @@
 <?php
 session_start();
-// include('config.php');
+include('config.php');
 include('header.php');
 
 // Fetch latest videos
