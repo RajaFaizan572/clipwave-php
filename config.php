@@ -6,7 +6,7 @@ $database = "clipwave";
 $port = 3306;
 
 // SSL certificate path (download BaltimoreCyberTrustRoot.crt.pem)
-$ssl_cert = __DIR__ . "C:/BaltimoreCyberTrustRoot.crt.pem";
+$ssl_cert = __DIR__ . "/BaltimoreCyberTrustRoot.crt.pem";
 
 $conn = mysqli_init();
 mysqli_ssl_set($conn, NULL, NULL, $ssl_cert, NULL, NULL);
