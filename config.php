@@ -1,6 +1,6 @@
 <?php
 $host = "clipwave.mysql.database.azure.com";
-$user = "clipwave";  // use full format
+$user = "clipwave@clipwave";  // use full format
 $password = "Mydata12";
 $database = "clipwave";
 $port = 3306;
