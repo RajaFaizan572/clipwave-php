@@ -8,7 +8,7 @@ $password = "Mydata12";
 $database = "clipwave";
 $port = 3306;
 
-$ssl_cert = __DIR__ . "/BaltimoreCyberTrustRoot.crt.pem";
+$ssl_cert = __DIR__ . "DigiCertGlobalRootCA.crt.pem";
 
 $conn = mysqli_init();
 mysqli_ssl_set($conn, NULL, NULL, $ssl_cert, NULL, NULL);
