@@ -23,7 +23,6 @@ mysqli_real_connect(
     $password,
     $database,
     $port,
-    NULL,
     MYSQLI_CLIENT_SSL
 );
 
