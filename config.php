@@ -11,10 +11,11 @@ $port = 3306;
 $ssl_cert = __DIR__ . "DigiCertGlobalRootCA.crt.pem";
 
 $conn = mysqli_init();
+mysqli_ssl_set($conn, NULL, NULL, $ssl_cert, NULL, NULL);
 mysqli_real_connect($conn, $host, $user, $password, $database, $port, NULL, MYSQLI_CLIENT_SSL);
 
-if (mysqli_connect_errno($conn)) {
-    die("❌ Failed to connect: " . mysqli_connect_error());
+if (mysqli_connect_errno()) {
+    die("Failed to connect: " . mysqli_connect_error());
 } else {
     echo "✅ Connected to Azure MySQL!";
 }
