@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
+$host = 'clipwave.mysql.database.azure.com';
 $dbname = 'clipwave';
-$username = 'root'; // Change this to your MySQL username
-$password = ''; // Change this to your MySQL password
+$username = 'clipwave'; // Change this to your MySQL username
+$password = 'Mydata12'; // Change this to your MySQL password
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
