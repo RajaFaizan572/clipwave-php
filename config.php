@@ -1,21 +1,34 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-$host = "clipwave.mysql.database.azure.com";
-$user = "clipwave@clipwave";   // ✅ full format
-$password = "Mydata12";
-$database = "clipwave";
+// Database configuration
+$host = 'clipwave.mysql.database.azure.com';
+$username = 'clipwave@clipwave';
+$password = 'Mydata12';
+$database = 'clipwave';
 $port = 3306;
 
-$ssl_cert = __DIR__ . "DigiCertGlobalRootCA.crt.pem";
+// Path to SSL certificate
+$ssl_cert_path = '/home/site/wwwroot/DigiCertGlobalRootCA.crt.pem';
 
+// Create a new mysqli object
 $conn = mysqli_init();
-mysqli_ssl_set($conn, NULL, NULL, $ssl_cert, NULL, NULL);
 
-if (!mysqli_real_connect($conn, $host, $user, $password, $database, $port, NULL, MYSQLI_CLIENT_SSL)) {
-    die("❌ Connection failed: (" . mysqli_connect_errno() . ") " . mysqli_connect_error());
-} else {
-    echo "✅ Connected successfully!";
+// Set SSL parameters
+mysqli_ssl_set($conn, NULL, NULL, $ssl_cert_path, NULL, NULL);
+
+// Connect to the database
+mysqli_real_connect(
+    $conn,
+    $host,
+    $username,
+    $password,
+    $database,
+    $port,
+    NULL,
+    MYSQLI_CLIENT_SSL
+);
+
+// Check connection
+if (mysqli_connect_errno()) {
+    die('Connection failed: ' . mysqli_connect_error());
 }
 ?>
