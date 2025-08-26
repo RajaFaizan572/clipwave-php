@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $host = "clipwave.mysql.database.azure.com";
-$user = "ASP-clipwave-ae23";   // ✅ full format
+$user = "clipwave@clipwave";   // ✅ full format
 $password = "Mydata12";
 $database = "clipwave";
 $port = 3306;
