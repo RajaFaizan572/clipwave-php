@@ -11,7 +11,6 @@ $port = 3306;
 $ssl_cert = __DIR__ . "DigiCertGlobalRootCA.crt.pem";
 
 $conn = mysqli_init();
-mysqli_ssl_set($conn, NULL, NULL, $ssl_cert, NULL, NULL);
 mysqli_real_connect($conn, $host, $user, $password, $database, $port, NULL, MYSQLI_CLIENT_SSL);
 
 if (mysqli_connect_errno($conn)) {
