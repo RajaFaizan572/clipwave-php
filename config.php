@@ -1,7 +1,8 @@
 <?php
 // Database configuration
 $host = 'clipwave.mysql.database.azure.com';
-$username = 'clipwave@clipwave';
+$username = 'clipwave'; // Azure MySQL requires the username without @servername for initial connection
+$admin_username = 'clipwave@clipwave'; // Use this format for certain Azure contexts if needed
 $password = 'Mydata12';
 $database = 'clipwave';
 $port = 3306;
@@ -19,15 +20,18 @@ mysqli_ssl_set($conn, NULL, NULL, $ssl_cert_path, NULL, NULL);
 mysqli_real_connect(
     $conn,
     $host,
-    $username,
+    $username, // Using the username without @servername here
     $password,
     $database,
     $port,
-    MYSQLI_CLIENT_SSL
+    NULL, // Use NULL instead of MYSQLI_CLIENT_SSL if socket is not needed
+    MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT // Common flag for Azure
 );
 
 // Check connection
 if (mysqli_connect_errno()) {
     die('Connection failed: ' . mysqli_connect_error());
 }
+
+echo "Connected successfully!";
 ?>
