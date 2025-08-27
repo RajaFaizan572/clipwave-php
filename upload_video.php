@@ -1,7 +1,7 @@
 <?php
 session_start();
-require '/config.php';
-require '/header.php';
+include('config.php');
+include('header.php');
 
 if (!isset($_SESSION['user_id'])) {
   header('Location: login.php'); exit;
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   // Save file
-  $uploads = _DIR_.'/uploads';
+  $uploads = '/uploads';
   if (!is_dir($uploads)) mkdir($uploads, 0755, true);
 
   $safeBase = preg_replace('/[^A-Za-z0-9.-]/', '', pathinfo($file['name'], PATHINFO_FILENAME));
@@ -88,4 +88,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </form>
 </div>
 
-<?php require '/footer.php'; ?>
+<?php include('footer.php'); ?>
